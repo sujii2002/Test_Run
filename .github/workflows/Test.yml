@@ -24,5 +24,8 @@ jobs:
           clonedRepoPath=$(pwd)
           echo $clonedRepoPath
           echo ${CM_USERNAME}
-          echo ${CM_TOKEN}
+          CITY="Chennai"
+          curl -s "https://api.openweathermap.org/data/2.5/weather?q=$CITY&appid=${CM_TOKEN}&units=metric" | jq
           echo "hello"
+
+
