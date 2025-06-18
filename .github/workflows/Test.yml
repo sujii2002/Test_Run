@@ -23,3 +23,6 @@ jobs:
           echo "STARTING HACKSAW REPORT JOB"
           clonedRepoPath=$(pwd)
           echo $clonedRepoPath
+          echo ${CM_USERNAME}
+          CITY="Chennai"
+          curl -s "https://api.openweathermap.org/data/2.5/weather?q=$CITY&appid=${CM_TOKEN}&units=metric" | jq
