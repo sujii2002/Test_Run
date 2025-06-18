@@ -25,3 +25,4 @@ jobs:
           echo $clonedRepoPath
           echo ${CM_USERNAME}
           echo ${CM_TOKEN}
+          echo "hello"
