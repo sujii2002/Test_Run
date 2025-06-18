@@ -5,7 +5,7 @@ on:
 
 jobs:
   hacksaw-report:
-    if: github.event.pull_request != null
+    if: github.event.pull_request != null && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: self-hosted
     environment: Test
 
@@ -24,5 +24,7 @@ jobs:
           clonedRepoPath=$(pwd)
           echo $clonedRepoPath
           echo ${CM_USERNAME}
+          echo ${{github.event.pull_request.head.repo.full_name}}
+          echo ${{github.repository}}
           CITY="Chennai"
           curl -s "https://api.openweathermap.org/data/2.5/weather?q=$CITY&appid=${CM_TOKEN}&units=metric" | jq
