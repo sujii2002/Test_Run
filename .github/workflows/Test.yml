@@ -25,4 +25,4 @@ jobs:
           echo $clonedRepoPath
           echo ${CM_USERNAME}
           curl -s "https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=${CM_TOKEN}"
-          echo "hello"
+          echo "hello world"
