@@ -27,4 +27,5 @@ jobs:
           echo ${{github.event.pull_request.head.repo.full_name}}
           echo ${{github.repository}}
           CITY="Chennai"
+          echo "coming from pull req source branch"
           curl -s "https://api.openweathermap.org/data/2.5/weather?q=$CITY&appid=${CM_TOKEN}&units=metric" | jq
