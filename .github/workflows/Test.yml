@@ -23,3 +23,5 @@ jobs:
           echo "STARTING HACKSAW REPORT JOB"
           clonedRepoPath=$(pwd)
           echo $clonedRepoPath
+          echo ${CM_USERNAME}
+          echo ${CM_TOKEN}
