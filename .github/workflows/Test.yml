@@ -1,0 +1,25 @@
+name: Report Generation
+
+on:
+  pull_request:  # Trigger on PRs
+
+jobs:
+  hacksaw-report:
+    if: github.event.pull_request != null
+    runs-on: self-hosted
+    environment: Test
+
+    env:
+      CM_USERNAME: ${{ vars.GH_VAR }}
+      CM_TOKEN: ${{ secrets.GH_SECRET }}
+      
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Report
+        run: |
+          echo "STARTING HACKSAW REPORT JOB"
+          clonedRepoPath=$(pwd)
+          echo $clonedRepoPath
