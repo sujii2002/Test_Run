@@ -1,11 +1,11 @@
 name: Report Generation
 
 on:
-  pull_request_target:  # Trigger on PRs
+  pull_request:  # Trigger on PRs
 
 jobs:
   hacksaw-report:
-    if: github.event.pull_request != null
+    if: github.event.pull_request != null && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: self-hosted
     environment: Test
 
@@ -21,6 +21,9 @@ jobs:
       - name: Run Report
         run: |
           echo "STARTING HACKSAW REPORT JOB"
+          echo ${{github.event.pull_request.head.repo.full_name}}
+          echo ${{github.repository}}
+          
           clonedRepoPath=$(pwd)
           echo $clonedRepoPath
           echo ${CM_USERNAME}
